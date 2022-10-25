@@ -7,9 +7,10 @@ def hello_name(user_name):
 
 # Question 2: first_odds()
 def first_odds():
-    found_odds = []
+    found_odds = [] # stores the found odd values
 
-    for i in range(100): # loop through all numbers 'i' from 0-100
+    # loop through all numbers 'i' from 0-100
+    for i in range(100): 
         # add any odd values of 'i' to the list 'found_odds'
         if(i % 2 == 1): found_odds.append(i)
             
@@ -19,12 +20,14 @@ def first_odds():
 # Question 3: max_num_in_list(a_list)
 def max_num_in_list(a_list):
     max_num = 0 # tracks the currently-found maximum
-    
-    for n in a_list: # loop through all values 'n' in 'a_list'
+
+    # loop through all values 'n' in 'a_list'
+    for n in a_list: 
         # replace max_num with any greater values if found
         if(max_num < n): max_num = n 
-    
-    return max_num # return final value of 'max_num'
+
+    # return final value of 'max_num'
+    return max_num 
 
 
 # Question 4: is_leap_year(year)
@@ -40,12 +43,16 @@ def is_leap_year(year):
 def is_consecutive(a_list):
     index = 1 # tracks the current index, starting from the second value of 'a_list'
     
+    # loop through 'a_list' starting at 'index'
     while(index < len(a_list)):
-        if(a_list[index] == (a_list[index - 1] + 1)): # if the current index value is 1 greater than the previous index value, increment 'index' and continue 
+        # if the current index value is 1 greater than the previous index value, increment 'index' and continue 
+        if(a_list[index] == (a_list[index - 1] + 1)): 
             index = index + 1
-        else: return False # if the current index value is ever not 1 greater than the previous index value, the list can't be continuous; return False
-
-    return True # if a discontinuity is never found, return True
+        # if the current index value is ever not 1 greater than the previous index value, the list can't be continuous; return False
+        else: return False
+    
+    # if a discontinuity is never found, return True
+    return True 
 
 
 # Test cases
