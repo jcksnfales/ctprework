@@ -33,13 +33,19 @@ def is_leap_year(year):
     #   divisible by 4 and NOT divisible by 100
     #       OR
     #   divisible by 400     
-    return ((year % 4 == 0) and (year % 100 > 0)) or (year % 400 == 0)
+    return ((year % 4 == 0) and (year % 100 != 0)) or (year % 400 == 0)
 
 
 # Question 5: is_consecutive(a_list)
 def is_consecutive(a_list):
-    return False
+    index = 1 # tracks the current index, starting from the second value of 'a_list'
     
+    while(index < len(a_list)):
+        if(a_list[index] == (a_list[index - 1] + 1)): # if the current index value is 1 greater than the previous index value, increment 'index' and continue 
+            index = index + 1
+        else: return False # if the current index value is ever not 1 greater than the previous index value, the list can't be continuous; return False
+
+    return True # if a discontinuity is never found, return True
 
 
 # Test cases
@@ -49,11 +55,12 @@ hello_name("Jack")
 first_odds()
 # Q3
 q3_test_list = [4,8,15,16,28,42,42,69,13,2,6,3,6,9,4,17,6]
-print(max_num_in_list(q3_test_list))
+print("Q3: In the list {0}, the greatest value is {1}".format(q3_test_list, max_num_in_list(q3_test_list)))
 # Q4
-print(is_leap_year(1200))
+q4_year = 2000
+print("Q4: Is {0} a leap year? {1}".format(q4_year, is_leap_year(q4_year)))
 # Q5
-q5_consecutive_list = [6,7,8,9,10,11,12,13,14,15,16]
-q5_nonconsecutive_list = [6,7,8,9,11,12,13,15,14,16]
-print(is_consecutive(q5_consecutive_list))
-print(is_consecutive(q5_nonconsecutive_list))
+q5_consecutive_list = [2,3,4,5,6,7]
+q5_nonconsecutive_list = [1,2,4,5]
+print("Q5: Is {0} continuous? {1}".format(q5_consecutive_list, is_consecutive(q5_consecutive_list)))
+print("Q5: Is {0} continuous? {1}".format(q5_nonconsecutive_list, is_consecutive(q5_nonconsecutive_list)))
